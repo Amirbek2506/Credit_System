@@ -1,0 +1,85 @@
+C:\projecs\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.exe
+C:\projecs\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.deps.json
+C:\projecs\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.runtimeconfig.json
+C:\projecs\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.runtimeconfig.dev.json
+C:\projecs\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.dll
+C:\projecs\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.pdb
+C:\projecs\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.csprojAssemblyReference.cache
+C:\projecs\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.csproj.CoreCompileInputs.cache
+C:\projecs\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.AssemblyInfoInputs.cache
+C:\projecs\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.AssemblyInfo.cs
+C:\projecs\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.dll
+C:\projecs\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.pdb
+C:\projecs\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.genruntimeconfig.cache
+C:\projects\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.exe
+C:\projects\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.deps.json
+C:\projects\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.runtimeconfig.json
+C:\projects\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.runtimeconfig.dev.json
+C:\projects\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.dll
+C:\projects\ConsoleApp2\bin\Debug\netcoreapp3.1\MyprojecsApp.pdb
+C:\projects\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.csprojAssemblyReference.cache
+C:\projects\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.csproj.CoreCompileInputs.cache
+C:\projects\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.AssemblyInfoInputs.cache
+C:\projects\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.AssemblyInfo.cs
+C:\projects\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.dll
+C:\projects\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.pdb
+C:\projects\ConsoleApp2\obj\Debug\netcoreapp3.1\MyprojecsApp.genruntimeconfig.cache
+C:\projects\Zadaza 1\bin\Debug\netcoreapp3.1\MyprojecsApp.exe
+C:\projects\Zadaza 1\bin\Debug\netcoreapp3.1\MyprojecsApp.deps.json
+C:\projects\Zadaza 1\bin\Debug\netcoreapp3.1\MyprojecsApp.runtimeconfig.json
+C:\projects\Zadaza 1\bin\Debug\netcoreapp3.1\MyprojecsApp.runtimeconfig.dev.json
+C:\projects\Zadaza 1\bin\Debug\netcoreapp3.1\MyprojecsApp.dll
+C:\projects\Zadaza 1\bin\Debug\netcoreapp3.1\MyprojecsApp.pdb
+C:\projects\Zadaza 1\obj\Debug\netcoreapp3.1\MyprojecsApp.csprojAssemblyReference.cache
+C:\projects\Zadaza 1\obj\Debug\netcoreapp3.1\MyprojecsApp.csproj.CoreCompileInputs.cache
+C:\projects\Zadaza 1\obj\Debug\netcoreapp3.1\MyprojecsApp.AssemblyInfoInputs.cache
+C:\projects\Zadaza 1\obj\Debug\netcoreapp3.1\MyprojecsApp.AssemblyInfo.cs
+C:\projects\Zadaza 1\obj\Debug\netcoreapp3.1\MyprojecsApp.dll
+C:\projects\Zadaza 1\obj\Debug\netcoreapp3.1\MyprojecsApp.pdb
+C:\projects\Zadaza 1\obj\Debug\netcoreapp3.1\MyprojecsApp.genruntimeconfig.cache
+C:\projects\Urok4\obj\Debug\netcoreapp3.1\MyprojecsApp.csprojAssemblyReference.cache
+C:\projects\Urok4\obj\Debug\netcoreapp3.1\MyprojecsApp.csproj.CoreCompileInputs.cache
+C:\projects\Urok4\obj\Debug\netcoreapp3.1\MyprojecsApp.AssemblyInfoInputs.cache
+C:\projects\Urok4\obj\Debug\netcoreapp3.1\MyprojecsApp.AssemblyInfo.cs
+C:\projects\Urok4\obj\Debug\netcoreapp3.1\MyprojecsApp.dll
+C:\projects\Urok4\obj\Debug\netcoreapp3.1\MyprojecsApp.pdb
+C:\projects\Urok4\bin\Debug\netcoreapp3.1\MyprojecsApp.exe
+C:\projects\Urok4\bin\Debug\netcoreapp3.1\MyprojecsApp.deps.json
+C:\projects\Urok4\bin\Debug\netcoreapp3.1\MyprojecsApp.runtimeconfig.json
+C:\projects\Urok4\bin\Debug\netcoreapp3.1\MyprojecsApp.runtimeconfig.dev.json
+C:\projects\Urok4\bin\Debug\netcoreapp3.1\MyprojecsApp.dll
+C:\projects\Urok4\bin\Debug\netcoreapp3.1\MyprojecsApp.pdb
+C:\projects\Urok4\obj\Debug\netcoreapp3.1\MyprojecsApp.genruntimeconfig.cache
+C:\projects\Промежуточный итог\bin\Debug\netcoreapp3.1\Credit_System.exe
+C:\projects\Промежуточный итог\bin\Debug\netcoreapp3.1\Credit_System.deps.json
+C:\projects\Промежуточный итог\bin\Debug\netcoreapp3.1\Credit_System.runtimeconfig.json
+C:\projects\Промежуточный итог\bin\Debug\netcoreapp3.1\Credit_System.runtimeconfig.dev.json
+C:\projects\Промежуточный итог\bin\Debug\netcoreapp3.1\Credit_System.dll
+C:\projects\Промежуточный итог\bin\Debug\netcoreapp3.1\Credit_System.pdb
+C:\projects\Промежуточный итог\obj\Debug\netcoreapp3.1\Credit_System.csprojAssemblyReference.cache
+C:\projects\Промежуточный итог\obj\Debug\netcoreapp3.1\Credit_System.csproj.CoreCompileInputs.cache
+C:\projects\Промежуточный итог\obj\Debug\netcoreapp3.1\Credit_System.AssemblyInfoInputs.cache
+C:\projects\Промежуточный итог\obj\Debug\netcoreapp3.1\Credit_System.AssemblyInfo.cs
+C:\projects\Промежуточный итог\obj\Debug\netcoreapp3.1\Credit_System.dll
+C:\projects\Промежуточный итог\obj\Debug\netcoreapp3.1\Credit_System.pdb
+C:\projects\Промежуточный итог\obj\Debug\netcoreapp3.1\Credit_System.genruntimeconfig.cache
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\Credit_System.exe
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\Credit_System.deps.json
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\Credit_System.runtimeconfig.json
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\Credit_System.runtimeconfig.dev.json
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\Credit_System.dll
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\Credit_System.pdb
+C:\projects\Промежуточный проект\obj\Debug\netcoreapp3.1\Credit_System.csprojAssemblyReference.cache
+C:\projects\Промежуточный проект\obj\Debug\netcoreapp3.1\Credit_System.csproj.CoreCompileInputs.cache
+C:\projects\Промежуточный проект\obj\Debug\netcoreapp3.1\Credit_System.AssemblyInfoInputs.cache
+C:\projects\Промежуточный проект\obj\Debug\netcoreapp3.1\Credit_System.AssemblyInfo.cs
+C:\projects\Промежуточный проект\obj\Debug\netcoreapp3.1\Credit_System.dll
+C:\projects\Промежуточный проект\obj\Debug\netcoreapp3.1\Credit_System.pdb
+C:\projects\Промежуточный проект\obj\Debug\netcoreapp3.1\Credit_System.genruntimeconfig.cache
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\projects\Промежуточный проект\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\projects\Промежуточный проект\obj\Debug\netcoreapp3.1\Credit_System.csproj.CopyComplete
