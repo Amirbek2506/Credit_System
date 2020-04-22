@@ -7,6 +7,10 @@ namespace Credit_System
     public static class Zayavki
     {
         public static string SerPassport;
+        public static Decimal SummCredit;
+        public static Decimal OpshDokhod;
+        public static string SelCredit;
+        public static int SrokCredit;
         static SqlConnection connection = new SqlConnection(Connect.StrConnection);
         public static void TableZayavki()
         {
@@ -69,6 +73,46 @@ namespace Credit_System
         }
         public static bool AddZayavka()
         {
+            Console.Clear();
+            Console.Write("Сумма кредита: "); SummCredit = Decimal.Parse(Console.ReadLine());
+            Console.Write("Общий доход: "); OpshDokhod = Decimal.Parse(Console.ReadLine());
+            Console.Clear();
+        S1: Console.Write("\tВыберите цель кредита!\n1.Бытовая техника\n2.Ремонт\n3.Телефон\n4.Прочее\n");
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    {
+                        SelCredit = "Бытовая техника";
+                    }
+                    break;
+                case "2":
+                    {
+                        SelCredit = "Ремонт";
+                    }
+                    break;
+                case "3":
+                    {
+                        SelCredit = "Телефон";
+                    }
+                    break;
+                case "4":
+                    {
+                        SelCredit = "Прочее";
+                    }
+                    break;
+                default:
+                    {
+                        Console.Clear();
+                        Console.WriteLine("\tНеверная команда!");
+                        goto S1;
+                    }
+            }
+        S2: Console.Write("Срок кредита(на месяц): "); SrokCredit = int.Parse(Console.ReadLine());
+            if (!(SrokCredit > 3 && SrokCredit <= 60))
+            {
+                Console.WriteLine("Cрок кредита от 3 до 60 месяц!!!");
+                goto S2;
+            }
 
             return true;
         }
