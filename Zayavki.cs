@@ -8,11 +8,13 @@ namespace Credit_System
     {
         public static string SerPassport;
         public static int SummCredit;
-        public static int SummOtpl=0;
+        public static int SummOtpl = 0;
         public static DateTime DataZayavk;
         public static DateTime DataOtpl;
+        public static int StatusCredit=0;
+        public static decimal OstatokCredit;
         public static int OpshDokhod;
-        public static int Prosrochka=0;
+        public static int Prosrochka = 0;
         public static string SelCredit;
         public static int SrokCredit;
         static SqlConnection connection = new SqlConnection(Connect.StrConnection);
@@ -34,7 +36,7 @@ namespace Credit_System
                             {
                                 while (reader.Read())
                                 {
-                                    Console.Write($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}\t{reader.GetValue(6).ToString()}\t{reader.GetValue(7).ToString()}\t{reader.GetValue(8).ToString()}\t{reader.GetValue(9).ToString()}");
+                                    Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}\t{reader.GetValue(6).ToString()}");
                                 }
                             }
                         }
@@ -43,7 +45,8 @@ namespace Credit_System
                 case "2":
                     {
                         Console.Clear();
-                        Console.WriteLine("Введите серии паспорта"); SerPassport = Console.ReadLine();
+                        Console.WriteLine("Введите серии паспорта или логин"); SerPassport = Console.ReadLine();
+                        Console.Clear();
                         if (connection.State == ConnectionState.Closed)
                             connection.Open();
                         string com = $"select * from Zayavki";
@@ -55,7 +58,7 @@ namespace Credit_System
                                 {
                                     if (SerPassport == reader.GetValue(0).ToString())
                                     {
-                                        Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}");
+                                        Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}\t{reader.GetValue(6).ToString()}");
                                     }
                                 }
                             }
@@ -112,6 +115,7 @@ namespace Credit_System
                         goto S1;
                     }
             }
+            Console.Clear();
         S2: Console.Write("Срок кредита(на месяц): "); SrokCredit = int.Parse(Console.ReadLine());
             if (!(SrokCredit > 3 && SrokCredit <= 60))
             {
@@ -119,33 +123,35 @@ namespace Credit_System
                 goto S2;
             }
             DataZayavk = DateTime.Now;
-            int Status = 0;
             if (Calculation.ConculationZayavok())
             {
-                Status = 1;
+                OstatokCredit=SummCredit-SummOtpl;
+                StatusCredit=1;
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                string com = $"insert into Zayavki([SeriesPassport],[SelCredit],[OpshSumm],[OpshDokhod],[Srok],[Status],[Data]) Values ('{Customer.SerPassport}','{SelCredit}',{SummCredit},{OpshDokhod},{SrokCredit},{Status},'{DateTime.Now}')";
+                string com = $"insert into Zayavki([SeriesPassport],[SelCredit],[OpshSumm],[OpshDokhod],[Srok],[Status],[Data]) Values ('{Customer.SerPassport}','{SelCredit}',{SummCredit},{OpshDokhod},{SrokCredit},{StatusCredit},'{DateTime.Now}')";
                 SqlCommand command = new SqlCommand(com, connection);
                 command.ExecuteNonQuery();
+                Console.Clear();
                 Console.WriteLine("Вы можете взять кредит\nДля оформления нажмите 1");
                 if (Console.ReadLine() == "1")
                 {
-                   double SummPay=(SummCredit + (SummCredit * 0.2)) / SrokCredit;
                     if (connection.State == ConnectionState.Closed)
                         connection.Open();
                     for (int i = 0; i < SrokCredit; i++)
                     {
-                        string comm = $"Insert Into GraphicPog([SeriasPassport],[SummPay],[DatePay],[Prosrochka],[SummOpl],[DateOpl]) Values ('{Customer.SerPassport}',{},'{DataZayavk}',{Prosrochka},{SummOtpl})";
+                        string comm = $"Insert Into GraphicPog([SeriasPassport],[SummPay],[DatePay],[Prosrochka],[SummOpl],[DateOpl]) Values ('{Customer.SerPassport}','{Math.Round(((SummCredit + (SummCredit * 0.2)) / SrokCredit),0)}','{DataZayavk}','{Prosrochka}',{SummOtpl},null)";
                         SqlCommand commandI = new SqlCommand(comm, connection);
                         commandI.ExecuteNonQuery();
-                          DataZayavk = DataZayavk.AddMonths(1);
+                        DataZayavk = DataZayavk.AddMonths(1);
                     }
+                    Credit_History.AddCreditHistory();
                     Console.Clear();
                     Console.WriteLine($"Вы взяли {SummCredit} сомони на кредит. У вас ест график погошения!");
                     Console.ReadKey();
                     Console.Clear();
                 }
+
             }
             else
             {
@@ -157,6 +163,27 @@ namespace Credit_System
                 command.ExecuteNonQuery();
             }
             return true;
+        }
+        public static void HistoryZayavk()
+        {
+            Console.Clear();
+            if (connection.State == ConnectionState.Closed)
+                connection.Open();
+            string com = $"select * from Zayavki";
+            using (SqlCommand command = new SqlCommand(com, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (Customer.SerPassport == reader.GetValue(0).ToString())
+                        {
+                            Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}\t{reader.GetValue(6).ToString()}");
+                        }
+                    }
+                }
+            }
+            Console.ReadKey();
         }
     }
 }

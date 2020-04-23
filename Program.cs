@@ -98,22 +98,22 @@ namespace Credit_System
                                                 }
                                             case "2":
                                                 {
-                                                    Admin.AddAdmin();
+                                                    Zayavki.HistoryZayavk();
                                                     goto Table;
                                                 }
                                             case "3":
                                                 {
-                                                    Zayavki.TableZayavki();
+                                                    Customer.CustomerforSer();
                                                     goto Table;
                                                 }
                                             case "4":
                                                 {
-                                                    Credit_History.TableCreditHistory();
+                                                    Credit_History.CreditHistory();
                                                     goto Table;
                                                 }
                                             case "5":
                                                 {
-                                                    GraphicPog.TableGraphicPog();
+                                                    GraphicPog.Graphic_Pog();
                                                     goto Table;
                                                 }
                                             case "6":
@@ -146,6 +146,14 @@ namespace Credit_System
                                     goto start;
                                 }
                         }
+                    }
+                default:
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Неверная команда!");
+                        Console.ReadKey();
+                        Console.Clear();
+                        goto start;
                     }
             }
         }

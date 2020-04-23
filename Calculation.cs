@@ -78,7 +78,7 @@ namespace Credit_System
             if (Age >= 36 && Age <= 62) Bal += 2;
             if (Age >= 63) Bal += 1;
             if (Customer.Nationality == "Таджикистан") Bal += 1;
-            Decimal SummOOD = (Zayavki.SummCredit * 100) / Zayavki.OpshDokhod;
+            Decimal SummOOD = ((Zayavki.SummCredit * 100) / Zayavki.OpshDokhod);
             if (SummOOD <= 80) Bal += 4;
             else if (SummOOD > 80 && SummOOD <= 150) Bal += 3;
             else if (SummOOD > 150 && SummOOD <= 250) Bal += 2;

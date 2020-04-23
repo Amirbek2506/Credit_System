@@ -20,7 +20,7 @@ namespace Credit_System
         public static bool Registration()
         {
             Console.Clear();
-            Console.WriteLine("\t\tРегистрация");
+            System.Console.WriteLine("\t\tРегистрация");
             Console.Write("Фамилия: "); LastName = Console.ReadLine();
             Console.Write("Имя: "); FirstName = Console.ReadLine();
             Console.Write("Очество(не обезательный): "); MiddleName = Console.ReadLine();
@@ -238,7 +238,7 @@ namespace Credit_System
                             {
                                 while (reader.Read())
                                 {
-                                    Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}\t{reader.GetValue(6).ToString()}\t{reader.GetValue(7).ToString()}\t{reader.GetValue(8).ToString()}\t{reader.GetValue(9).ToString()}");
+                                    Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}\t{reader.GetValue(6).ToString()}\t{reader.GetValue(7).ToString()}\t{reader.GetValue(8).ToString()}\t{reader.GetValue(9).ToString()}\n");
                                 }
                             }
                         }
@@ -278,6 +278,27 @@ namespace Credit_System
                         Console.WriteLine("Неверная команда!");
                         goto P1;
                     }
+            }
+        }
+        public static void CustomerforSer()
+        {
+            Console.Clear();
+            if (connection.State == ConnectionState.Closed)
+                connection.Open();
+            string com = $"select * from Customer";
+            using (SqlCommand command = new SqlCommand(com, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (SerPassport == reader.GetValue(4).ToString())
+                        {
+                            Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}\t{reader.GetValue(6).ToString()}\t{reader.GetValue(7).ToString()}\t{reader.GetValue(8).ToString()}\t{reader.GetValue(9).ToString()}");
+
+                        }
+                    }
+                }
             }
         }
     }
