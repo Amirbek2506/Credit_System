@@ -85,35 +85,37 @@ namespace Credit_System
                                     {
                                         Console.Clear();
                                         Console.WriteLine($"Добро пожаловать {Customer.FirstName} {Customer.LastName}");
-                                    Table: Console.Write("\tВыберите действия\n1.Оставит заявку на кредит\n2.Посмотреть история заявок\n3.Посмотреть личние данных\n4.Посмотреть кредитную историю\n5.Посмотреть график погощенност\n6.Отплатит\n7.Изменит личние данных\n8.Назад\nВыберите команду: ");
+                                    Table: Console.Write("\tВыберите действия\n1.Оставит заявку на кредит\n2.Посмотреть история заявок\n3.Посмотреть личние данных\n4.Посмотреть кредитную историю\n5.Посмотреть график погощенност\n6.Отплатит\n7.Назад\nВыберите команду: ");
                                         switch (Console.ReadLine())
                                         {
                                             case "1":
                                                 {
-                                                    if (Zayavki.AddZayavka())
-                                                    {
-                                                        goto Table;
-                                                    }
+                                                    Zayavki.AddZayavka();
+                                                    Console.Clear();
                                                     goto Table;
                                                 }
                                             case "2":
                                                 {
                                                     Zayavki.HistoryZayavk();
+                                                    Console.Clear();
                                                     goto Table;
                                                 }
                                             case "3":
                                                 {
                                                     Customer.CustomerforSer();
+                                                    Console.Clear();
                                                     goto Table;
                                                 }
                                             case "4":
                                                 {
                                                     Credit_History.CreditHistory();
+                                                    Console.Clear();
                                                     goto Table;
                                                 }
                                             case "5":
                                                 {
                                                     GraphicPog.Graphic_Pog();
+                                                    Console.Clear();
                                                     goto Table;
                                                 }
                                             case "6":
@@ -124,12 +126,9 @@ namespace Credit_System
                                                 {
                                                     goto FindCust;
                                                 }
-                                            case "8":
-                                                {
-                                                    goto FindCust;
-                                                }
                                             default:
                                                 {
+                                                    Console.Clear();
                                                     System.Console.WriteLine("\tНеверная команда!");
                                                     goto Table;
                                                 }

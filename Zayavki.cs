@@ -19,9 +19,8 @@ namespace Credit_System
         public static int SrokCredit;
         static SqlConnection connection = new SqlConnection(Connect.StrConnection);
         public static void TableZayavki()
-        {
-            Console.Clear();
-        P1: Console.WriteLine("1.Посмотреть все\n2.Посмотреть по серии паспорта или логин\n3.Назад\nВыберите команду: ");
+        {   Console.Clear();
+        P1: Console.WriteLine("1.Посмотреть все\n2.Посмотреть по серии паспорта\n3.Назад\nВыберите команду: ");
             switch (Console.ReadLine())
             {
                 case "1":
@@ -45,7 +44,8 @@ namespace Credit_System
                 case "2":
                     {
                         Console.Clear();
-                        Console.WriteLine("Введите серии паспорта или логин"); SerPassport = Console.ReadLine();
+                        Console.WriteLine("Введите серии паспорта");
+                        SerPassport = Console.ReadLine();
                         Console.Clear();
                         if (connection.State == ConnectionState.Closed)
                             connection.Open();
@@ -147,7 +147,7 @@ namespace Credit_System
                     }
                     Credit_History.AddCreditHistory();
                     Console.Clear();
-                    Console.WriteLine($"Вы взяли {SummCredit} сомони на кредит. У вас ест график погошения!");
+                    Console.WriteLine($"Вы взяли кредит в размере {SummCredit} сомони на срок {SrokCredit} месяцев.\n\tУ вас ест график погашения!");
                     Console.ReadKey();
                     Console.Clear();
                 }
@@ -158,7 +158,7 @@ namespace Credit_System
                 Console.WriteLine("Вы не можите взять кредит");
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                string com = $"Insert Into Zayavki([SeriesPassport],[SelCredit],[OpshSumm],[OpshDokhod],[Srok],[Status],[Data]) Values ('{Customer.SerPassport}','{SelCredit}',{SummCredit},{OpshDokhod},{SrokCredit},{Status},'{DateTime.Now}')";
+                string com = $"Insert Into Zayavki([SeriesPassport],[SelCredit],[OpshSumm],[OpshDokhod],[Srok],[Status],[Data]) Values ('{Customer.SerPassport}','{SelCredit}',{SummCredit},{OpshDokhod},{SrokCredit},{Zayavki.StatusCredit},'{DateTime.Now}')";
                 SqlCommand command = new SqlCommand(com, connection);
                 command.ExecuteNonQuery();
             }

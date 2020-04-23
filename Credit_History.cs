@@ -11,7 +11,7 @@ namespace Credit_System
         {
              if (connection.State == ConnectionState.Closed)
                         connection.Open();
-                        string comm = $"Insert Into Credit_History([SeriesPassport],[SelCredit],[SummCredit],[SrokCredit],[Prosrochka],[BeginDate],[EndDate],[Status],[OstatokCredit]) Values ('{Customer.SerPassport}','{Zayavki.SelCredit}',{Zayavki.SummCredit},{Zayavki.SrokCredit},{Zayavki.Prosrochka},'{Zayavki.DataZayavk}',null,{Zayavki.StatusCredit},'{Zayavki.OstatokCredit}')";
+                        string comm = $"Insert Into Credit_History([SeriesPassport],[SelCredit],[SummCredit],[SrokCredit],[Prosrochka],[BeginDate],[EndDate],[Status],[OstatokCredit]) Values ('{Customer.SerPassport}','{Zayavki.SelCredit}','{Zayavki.SummCredit}','{Zayavki.SrokCredit}','{Zayavki.Prosrochka}','{Zayavki.DataZayavk}',null,{Zayavki.StatusCredit},'{Zayavki.OstatokCredit}')";
                         SqlCommand commandI = new SqlCommand(comm, connection);
                         commandI.ExecuteNonQuery();
         }

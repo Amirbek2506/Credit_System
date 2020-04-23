@@ -23,10 +23,9 @@ namespace Credit_System
                     while (reader.Read())
                     {
                         if (Customer.SerPassport == reader.GetValue(0).ToString())
-                        {//если ест откритий кредит false
-                            if (int.Parse(reader.GetValue(8).ToString()) == 1)
-                            {
-                                Console.Clear();
+                        {
+                            if (reader.GetValue(7).ToString()== "1")
+                            {   Console.Clear();
                                 Console.WriteLine("\tУ вас есть не закритий кредит!!!");
                                 Console.ReadKey();
                                 return false;
