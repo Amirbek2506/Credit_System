@@ -61,6 +61,7 @@ namespace Credit_System
                     }
                 case "2":
                     {
+                        Console.Clear();
                     main: Console.WriteLine("1.Вход\n2.Регистрация\n3.Назад\nВыберите команду: ");
                         switch (Console.ReadLine())
                         {
@@ -82,13 +83,20 @@ namespace Credit_System
                                 {
                                 FindCust: if (Customer.FindCustomer())
                                     {
-                                    Table: Console.Clear();
-                                        Console.Write("1.Оставит заявку на кредит\n2.Посмотреть история заявок\n3.Посмотреть личние данных\n4.Посмотреть кредитную историю\n5.Посмотреть график погощенност\n6.Отплатит\n7.Изменит личние данных\n8.Назад\nВыберите команду: ");
+                                        Console.Clear();
+                                        Console.WriteLine($"Добро пожаловать {Customer.FirstName} {Customer.LastName}");
+                                    Table: Console.Write("\tВыберите действия\n1.Оставит заявку на кредит\n2.Посмотреть история заявок\n3.Посмотреть личние данных\n4.Посмотреть кредитную историю\n5.Посмотреть график погощенност\n6.Отплатит\n7.Изменит личние данных\n8.Назад\nВыберите команду: ");
                                         switch (Console.ReadLine())
                                         {
                                             case "1":
                                                 {
-                                                    
+                                                    if (Zayavki.AddZayavka())
+                                                    {
+                                                        Console.Clear();
+                                                        System.Console.WriteLine("\tВаша зайавка успешно отправлен!");
+                                                        Console.ReadKey();
+                                                        Console.Clear();
+                                                    }
                                                     goto Table;
                                                 }
                                             case "2":
@@ -141,7 +149,7 @@ namespace Credit_System
                                     goto start;
                                 }
                         }
-                    }break;
+                    }
             }
         }
     }
