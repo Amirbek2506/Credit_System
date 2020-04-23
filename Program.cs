@@ -92,10 +92,7 @@ namespace Credit_System
                                                 {
                                                     if (Zayavki.AddZayavka())
                                                     {
-                                                        Console.Clear();
-                                                        System.Console.WriteLine("\tВаша зайавка успешно отправлен!");
-                                                        Console.ReadKey();
-                                                        Console.Clear();
+                                                        goto Table;
                                                     }
                                                     goto Table;
                                                 }

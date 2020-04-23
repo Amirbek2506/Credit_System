@@ -7,8 +7,12 @@ namespace Credit_System
     public static class Zayavki
     {
         public static string SerPassport;
-        public static Decimal SummCredit;
-        public static Decimal OpshDokhod;
+        public static int SummCredit;
+        public static int SummOtpl=0;
+        public static DateTime DataZayavk;
+        public static DateTime DataOtpl;
+        public static int OpshDokhod;
+        public static int Prosrochka=0;
         public static string SelCredit;
         public static int SrokCredit;
         static SqlConnection connection = new SqlConnection(Connect.StrConnection);
@@ -74,8 +78,9 @@ namespace Credit_System
         public static bool AddZayavka()
         {
             Console.Clear();
-            Console.Write("Сумма кредита: "); SummCredit = Decimal.Parse(Console.ReadLine());
-            Console.Write("Общий доход: "); OpshDokhod = Decimal.Parse(Console.ReadLine());
+            Console.Write("Сумма кредита: ");
+            SummCredit = int.Parse(Console.ReadLine());
+            Console.Write("Общий доход: "); OpshDokhod = int.Parse(Console.ReadLine());
             Console.Clear();
         S1: Console.Write("\tВыберите цель кредита!\n1.Бытовая техника\n2.Ремонт\n3.Телефон\n4.Прочее\n");
             switch (Console.ReadLine())
@@ -113,7 +118,44 @@ namespace Credit_System
                 Console.WriteLine("Cрок кредита от 3 до 60 месяц!!!");
                 goto S2;
             }
-
+            DataZayavk = DateTime.Now;
+            int Status = 0;
+            if (Calculation.ConculationZayavok())
+            {
+                Status = 1;
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                string com = $"insert into Zayavki([SeriesPassport],[SelCredit],[OpshSumm],[OpshDokhod],[Srok],[Status],[Data]) Values ('{Customer.SerPassport}','{SelCredit}',{SummCredit},{OpshDokhod},{SrokCredit},{Status},'{DateTime.Now}')";
+                SqlCommand command = new SqlCommand(com, connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("Вы можете взять кредит\nДля оформления нажмите 1");
+                if (Console.ReadLine() == "1")
+                {
+                   double SummPay=(SummCredit + (SummCredit * 0.2)) / SrokCredit;
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    for (int i = 0; i < SrokCredit; i++)
+                    {
+                        string comm = $"Insert Into GraphicPog([SeriasPassport],[SummPay],[DatePay],[Prosrochka],[SummOpl],[DateOpl]) Values ('{Customer.SerPassport}',{},'{DataZayavk}',{Prosrochka},{SummOtpl})";
+                        SqlCommand commandI = new SqlCommand(comm, connection);
+                        commandI.ExecuteNonQuery();
+                          DataZayavk = DataZayavk.AddMonths(1);
+                    }
+                    Console.Clear();
+                    Console.WriteLine($"Вы взяли {SummCredit} сомони на кредит. У вас ест график погошения!");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Вы не можите взять кредит");
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                string com = $"Insert Into Zayavki([SeriesPassport],[SelCredit],[OpshSumm],[OpshDokhod],[Srok],[Status],[Data]) Values ('{Customer.SerPassport}','{SelCredit}',{SummCredit},{OpshDokhod},{SrokCredit},{Status},'{DateTime.Now}')";
+                SqlCommand command = new SqlCommand(com, connection);
+                command.ExecuteNonQuery();
+            }
             return true;
         }
     }
