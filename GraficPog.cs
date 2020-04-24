@@ -19,14 +19,14 @@ namespace Credit_System
                         Console.Clear();
                         if (connection.State == ConnectionState.Closed)
                             connection.Open();
-                        string com = $"select LastName,FirstName,SummPay,DatePay,Prosrochka,SummOpl,DateOpl from GraphicPog join Customer on Customer.SeriesPassport = GraphicPog.SeriasPassport";
+                        string com = $"select LastName,FirstName,SummPay,DatePay,Prosrochka,SummOpl,DateOpl from GraphicPog join Customer on Customer.SeriesPassport = GraphicPog.SeriesPassport";
                         using (SqlCommand command = new SqlCommand(com, connection))
                         {
                             using (SqlDataReader reader = command.ExecuteReader())
                             {
                                 while (reader.Read())
                                 {
-                                    Console.Write($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}\t{reader.GetValue(6).ToString()}");
+                                    Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}\t{reader.GetValue(6).ToString()}");
                                 }
                             }
                         }
@@ -40,19 +40,14 @@ namespace Credit_System
                         Console.WriteLine("Введите серии паспорта!"); string SerPassport = Console.ReadLine();
                         if (connection.State == ConnectionState.Closed)
                             connection.Open();
-                        string com =$"select LastName,FirstName,SummPay,DatePay,Prosrochka,SummOpl,DateOpl from GraphicPog join Customer on Customer.SerPassport = GraphicPog.SerPassport";
+                        string com = $"select LastName,FirstName,SummPay,DatePay,Prosrochka,SummOpl,DateOpl from GraphicPog join Customer on Customer.SeriesPassport = GraphicPog.SeriesPassport Where GraphicPog.SeriesPassport='{SerPassport}'";
                         using (SqlCommand command = new SqlCommand(com, connection))
                         {
                             using (SqlDataReader reader = command.ExecuteReader())
                             {
                                 while (reader.Read())
                                 {
-                                    if (SerPassport == reader.GetValue(0).ToString())
-                                    {
-                                        Console.WriteLine($" ");
-                                        Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}");
-
-                                    }
+                                    Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}");
                                 }
                             }
                         }
@@ -78,18 +73,14 @@ namespace Credit_System
             Console.Clear();
             if (connection.State == ConnectionState.Closed)
                 connection.Open();
-            string com = $"select * from GraphicPog";
+            string com = $"select LastName,FirstName,SummPay,DatePay,Prosrochka,SummOpl,DateOpl from GraphicPog join Customer on Customer.SeriesPassport = GraphicPog.SeriesPassport Where GraphicPog.SeriesPassport='{Customer.SerPassport}'";
             using (SqlCommand command = new SqlCommand(com, connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        if (Customer.SerPassport == reader.GetValue(0).ToString())
-                        {
-                            Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}");
-
-                        }
+                        Console.WriteLine($"{reader.GetValue(0).ToString()}\t{reader.GetValue(1).ToString()}\t{reader.GetValue(2).ToString()}\t{reader.GetValue(3).ToString()}\t{reader.GetValue(4).ToString()}\t{reader.GetValue(5).ToString()}");
                     }
                 }
             }

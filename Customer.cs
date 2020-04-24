@@ -242,12 +242,15 @@ namespace Credit_System
                                 }
                             }
                         }
+                        Console.ReadKey();
+                        Console.Clear();
                         goto P1;
                     }
                 case "2":
                     {
                         Console.Clear();
                         Console.WriteLine("Введите серии паспорта или логин! "); SerPassport = Console.ReadLine();
+                        Console.Clear();
                         if (connection.State == ConnectionState.Closed)
                             connection.Open();
                         string com = $"select * from Customer";
@@ -265,6 +268,8 @@ namespace Credit_System
                                 }
                             }
                         }
+                        Console.ReadKey();
+                        Console.Clear();
                         goto P1;
                     }
                 case "3":
@@ -300,6 +305,7 @@ namespace Credit_System
                     }
                 }
             }
+            Console.ReadKey();
         }
     }
 }

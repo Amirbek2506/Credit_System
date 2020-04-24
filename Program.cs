@@ -124,7 +124,7 @@ namespace Credit_System
                                                 }
                                             case "7":
                                                 {
-                                                    goto FindCust;
+                                                    goto main;
                                                 }
                                             default:
                                                 {
@@ -135,7 +135,7 @@ namespace Credit_System
                                         }
                                     }
 
-                                    goto FindCust;
+                                    goto main;
                                 }
 
                             default:
